@@ -32,7 +32,7 @@ To see the result, print `result.expression`:
 
 ![](https://github.com/gongzhang/swift-fourier-expansion/blob/master/Images/2.png)
 
-And draw the graph of expanded `f`:
+And draw the graph of expanded `f` by calling `result.function(_:)`:
 
 ```swift
 for x in domain.start.stride(to: domain.end, by: 0.01) {
