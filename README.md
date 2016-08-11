@@ -1,5 +1,7 @@
 # Fourier Series Expansion in Swift Playground
 
+[https://en.wikipedia.org/wiki/Fourier_series](https://en.wikipedia.org/wiki/Fourier_series)
+
 For example, there is an input function `f` that is defined on domain `0` to `1`:
 
 ```swift
