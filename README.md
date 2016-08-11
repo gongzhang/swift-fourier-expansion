@@ -34,4 +34,10 @@ To see the result, print `result.expression`:
 
 And draw the graph of expanded `f`:
 
+```swift
+for x in domain.start.stride(to: domain.end, by: 0.01) {
+    result.function(x)
+}
+```
+
 ![](https://github.com/gongzhang/swift-fourier-expansion/blob/master/Images/3.png)
