@@ -1,5 +1,7 @@
 import UIKit
 
+// 1. define any function and its domain:
+
 let domain = 0.0 ... 1.0
 
 let f: Double -> Double = { x in
@@ -14,6 +16,8 @@ let f: Double -> Double = { x in
 for x in domain.start.stride(to: domain.end, by: 0.01) {
     f(x)
 }
+
+// 2. do Fourier series expansion on that function
 
 var result = fourierExpand(f, domain: domain, seriesCount: 15)
 result.simplify(tolerance: 0.05) // allow 5% error
