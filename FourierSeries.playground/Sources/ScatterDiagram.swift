@@ -6,20 +6,21 @@ public struct ScatterDiagram {
     
     public init() {}
     
-    public var domain: ClosedInterval<Double> {
+    public var domain: ClosedRange<Double> {
         assert(dataPoints.count > 1, "the diagram must contains two points at least.")
-        let min_x = dataPoints.keys.minElement()!
-        let max_x = dataPoints.keys.maxElement()!
+        let min_x = dataPoints.keys.min()!
+        let max_x = dataPoints.keys.max()!
         return min_x ... max_x
     }
     
-    public func lineTogether() -> Double -> Double {
+    public func lineTogether() -> (Double) -> Double {
         assert(dataPoints.count > 1, "the diagram must contains two points at least.")
-        let sorted = dataPoints.sort { $0.0 < $1.0 }
+        let sorted = dataPoints.sorted { $0.0 < $1.0 }
         let domain = sorted.first!.0 ... sorted.last!.0
         return { x in
             assert(domain.contains(x), "x is out of domain")
-            for (i, (xi, yi)) in sorted.enumerate() {
+            for (i, e) in sorted.enumerated() {
+                let xi = e.key, yi = e.value
                 if x == xi {
                     return yi
                 } else {
